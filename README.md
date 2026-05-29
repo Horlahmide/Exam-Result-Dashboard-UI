@@ -10,7 +10,7 @@ How to open
 Files added
 
 - `index.html` — Main dashboard markup
-- `css/styles.css` — Styles for layout and responsiveness
+- `styles.css` — Styles for layout and responsiveness
 
 Next steps / enhancements (optional)
 
