@@ -5,6 +5,7 @@
   --accent: #2563eb;
   --success: #16a34a;
   --danger: #ef4444;
+  --text: #111827;
   --radius: 10px;
   --container: 1100px;
 }
@@ -18,10 +19,17 @@ body {
 }
 body {
   margin: 0;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial;
   background: var(--bg);
-  color: #111827;
+  color: var(--text);
   -webkit-font-smoothing: antialiased;
 }
 .container {
@@ -47,7 +55,15 @@ body {
   font-size: 1.25rem;
 }
 .student-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   text-align: right;
+}
+.student-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 .student-info .name {
   font-weight: 600;
@@ -251,4 +267,65 @@ table,
 th,
 td {
   border-color: rgba(17, 24, 39, 0.06);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: currentColor;
+  padding: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.theme-toggle:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.18);
+  outline-offset: 2px;
+}
+.theme-toggle .material-icons {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* header-aware adjustments when not on header (defaults) */
+.site-header .theme-toggle {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+.dark .site-header .theme-toggle {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Smooth theme transitions */
+html,
+body,
+.container,
+.card,
+.sidebar,
+.table-wrap,
+.performance,
+.site-header,
+.site-footer {
+  transition:
+    background-color 240ms ease,
+    color 240ms ease,
+    border-color 240ms ease;
+}
+
+/* Dark theme overrides */
+.dark {
+  --bg: #061226;
+  --card: #071029;
+  --muted: #9aa4b2;
+  --accent: #60a5fa;
+  --success: #34d399;
+  --danger: #fb7185;
+  --text: #e6eef8;
 }
